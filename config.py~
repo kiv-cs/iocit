@@ -1,0 +1,7 @@
+#configuration variable storage
+project_path    = '/home/kiv/Dropbox/bin/iocit'
+#images path is progect_path + 'img'
+target = [{'path':'/home/kiv/Dropbox/tmp/out', 'img':'/img/0.png', 'tab_count':0},
+          {'path':'/home/kiv/Dropbox/tmp/citation', 'img':'/img/1.png', 'tab_count':0},
+          {'path':'/home/kiv/Dropbox/tmp/glossary', 'img':'/img/2.png', 'tab_count':2},
+          {'path':'/home/kiv/Dropbox/tmp/googleit', 'img':'/img/3.png', 'tab_count':0}]
