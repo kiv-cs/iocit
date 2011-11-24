@@ -1,0 +1,115 @@
+IOCIT
+
+Abstract
+
+iocit is a set of simple python scripts with great plans.
+It usefull for collecting and manipulating different types of text data.
+
+What for?
+
+When you read something you may save any citation or unknown word or something else in a text file on your hard drive. Just select it and press predefined hotkey - iocit will store your selection. You may create as many files as you want, just tell it to iocit by editing config.py.
+After that iocit will show you collected strings sometimes and do another useful things.
+
+Scripts
+
+* savecit.py - save selected text in a file
+* showcit.py - show notification with random saved string
+* config.py - configuration file
+
+You may use it as is from command line.
+
+    python /path/to/sctipt/savecit.py
+    python /path/to/sctipt/showcit.py
+
+savecit.py has following keys:
+-s N - where to save text. 'N' is number of target file, see config.py
+-t - add '\t' symbol in the end of string before saving (for creating tab-separated values)
+
+But using keybindings and periodical notifications makes iocit much more useful. 
+ 
+Additional software
+
+For lunux:
+* xsel - work with buffers (including selected text)
+* xbindkeys - call anything with hotkeys
+* notify-send - show notifications
+* dzen2 - show notifications too (it's more fun!)
+* cron - do something in predefined time
+
+What to do to make it work
+
+1. Install requared utilities. You may use another software, just rewrite some methods.
+2. Edit configuration file. Read comments inside.
+3. Bind hotkeys. Edit your .xbindkeysrc by adding following strings. You may use any hotkeys you like. My .xbindkeysrc looks like this:
+
+   #save selected string in target 1
+   Alt + 1
+     python /path/to/script/savecit.py -s 1
+   #save selected string in target 2
+   Alt + 2
+     python /path/to/script/savecit.py -s 2
+   #save selected string in target 3
+   Alt + 3
+     python /path/to/script/savecit.py -s 3
+   #for default target and for applications with reserved Alt + num
+   Control + Alt + n
+     python /path/to/script/savecit.py -s 0
+
+   #following strings useful for saving tab-separated values. If you want to save a term, then tab symbol, then defenition of the term, use following
+   #save selected string in target 1 and add tab symbol after it
+   Alt + Shift + 1
+     python /path/to/script/savecit.py -s 1 -t
+   #save selected string in target 2 and add tab symbol after it
+   Alt + Shift + 2
+     python /path/to/script/savecit.py -s 2 -t
+   #save selected string in target 3 and add tab symbol after it
+   Alt + Shift + 3
+     python /path/to/script/savecit.py -s 3 -t
+   #for default target and for applications with reserved Alt + num
+   Control + Alt + m
+     python /path/to/script/savecit.py -s 0 -t
+
+4. Add a task into crontab. You will see notification window with random string from one of your files. 
+
+   crontab -e
+
+   Add following string into crontab:
+
+   #I prefer to see notifications every 5 minutes
+   */5 * * * * python /path/to/script/showcit.py 
+
+5. Make savecit.py and showcit.py executible
+
+   chmod a+x /path/to/script/*.py
+
+6. Don't forget about python!
+
+Success story
+
+For instance, I collect data in 4 files.
+0. default
+[tab] in example means '\t' symbol between strings.
+	bla
+	blabla[tab]	bla
+1. glossary
+	a term[tab]	defenition of the term
+	a term without defenition
+	another term[tab]	another defenition
+2. citation
+	"A citation from a book or blog which i have read recently. I can edit it by hand in text file called 'citation' btw"
+3. googleit
+Example:
+	Laplasian smoothing
+	another words
+	which i don't want to forget
+	and google it later
+
+Every 5 minutes iocit takes a string from any of this files and shows it to me in notification window. So I passively learn unknown terms and remember everything what i want to google. Also my mind and spirit rises when i read a great citation sometimes. I am not bored with it because I dont't now which type of data I will see next. Long life random!  
+
+TODO
+* Add boolean value show or not strings from this files with notifications
+* Add optional tags in the end of any string (comma-separated)
+* Call google search for any string
+* Call translator for any string
+* Rewrite README
+* Use command-line keys to define what additional software to use
