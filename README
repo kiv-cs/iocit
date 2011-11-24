@@ -2,8 +2,8 @@ IOCIT
 
 Abstract
 
-iocit is a set of simple python scripts with great plans.
-It usefull for collecting and manipulating different types of text data.
+iocit is a set of simple python scripts with great ambitions.
+It useful for collecting and manipulating different types of text data.
 
 What for?
 
@@ -105,6 +105,11 @@ Example:
 	and google it later
 
 Every 5 minutes iocit takes a string from any of this files and shows it to me in notification window. So I passively learn unknown terms and remember everything what i want to google. Also my mind and spirit rises when i read a great citation sometimes. I am not bored with it because I dont't now which type of data I will see next. Long life random!  
+
+Plans
+
+To create a set of small scripts for easy and fast processing of little text pieces.
+Collect and manipulate!
 
 TODO
 * Add boolean value show or not strings from this files with notifications
